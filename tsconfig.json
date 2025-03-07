@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "build/dist",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+    // "noEmit": true,
+    // "allowImportingTsExtensions": true
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "postcss.config.js",
+    "tailwindconfig.ts",
+    "tailwind.config.js",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ],
+  "types": ["react", "node"]
+}

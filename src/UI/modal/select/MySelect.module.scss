@@ -1,0 +1,51 @@
+.selectWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  min-width: 400px;
+  padding: 4px 0;
+}
+
+.selectInput {
+  width: 100%;
+  background: transparent;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    border-color: #b5b5b5;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #009142;
+    box-shadow: 0 0 4px rgba(0, 145, 66, 0.5);
+  }
+}
+
+.optionsList {
+  top: 40px;
+  position: absolute;
+  z-index: 30;
+  width: 100%;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.optionItem {
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: #d4edd9;
+  }
+}

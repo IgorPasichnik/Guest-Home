@@ -6,6 +6,17 @@ import OurApartamens from "../../components/ourApartamens/index";
 import Footer from "../../UI/footer";
 import Header from "../../UI/header";
 import Reviews from "../../components/reviews/index";
+import PhotoGallery from "../../components/photoGallery";
+
+const photos = Array.from({ length: 44 }, (_, index) => {
+  const photo = require(`../../images/photo-gallery/${index + 1}.jpg`);
+  return {
+    id: index + 1,
+    src: photo,
+    preview: photo,
+    description: "Фотокарточки GreenYard",
+  };
+});
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -37,6 +48,7 @@ const Home: React.FC = () => {
         nameSize="60px"
       />
       <AboutUs />
+      <PhotoGallery photos={photos} />
       <OurApartamens />
       <Reviews />
       <Footer />

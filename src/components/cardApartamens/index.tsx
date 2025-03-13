@@ -5,12 +5,14 @@ interface CardApartamensProps {
   image: string;
   title: string;
   description: string;
+  onClick: () => void;
 }
 
 const CardApartamens: React.FC<CardApartamensProps> = ({
   image,
   title,
   description,
+  onClick,
 }) => {
   return (
     <div className={Styles.card}>
@@ -20,7 +22,7 @@ const CardApartamens: React.FC<CardApartamensProps> = ({
         <p>{description}</p>
       </div>
       <div className={Styles.cardButton}>
-        <button>Подробнее</button>
+        <button onClick={onClick}>Подробнее</button>
       </div>
     </div>
   );

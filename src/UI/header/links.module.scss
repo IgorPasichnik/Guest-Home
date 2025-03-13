@@ -23,7 +23,7 @@
   }
 
   .nav {
-    width: 83.333%;
+    width: 90%;
     max-width: 1500px;
     display: flex;
     justify-content: space-between;
@@ -54,7 +54,7 @@
   .navLinks {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
 
     a {
       position: relative;
@@ -123,5 +123,9 @@
       border-color: #009142;
       color: white;
     }
+  }
+
+  .modalContainer {
+    position: absolute;
   }
 }

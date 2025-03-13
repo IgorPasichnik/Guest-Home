@@ -14,7 +14,8 @@ const Footer = () => {
 
           <ul className={Styles.navLinks}>
             <Link to="/">О нас</Link>
-            <Link to="/#OurApartamens">Номера</Link>
+            <Link to="/#photo-gallery">Фотогалерея</Link>
+            <Link to="/#our-apartamens">Номера</Link>
             <Link to="/#reviews">Отзывы</Link>
             <Link to="/pricing">Цены</Link>
             <Link to="/contacts">Контакты</Link>

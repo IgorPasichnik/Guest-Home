@@ -34,29 +34,36 @@ const Header: React.FC = () => {
           </Link>
 
           <ul className={Styles.navLinks}>
-            {["О нас", "Номера", "Отзывы", "Цены", "Контакты"].map(
-              (item, index) => (
-                <React.Fragment key={index}>
-                  <Link
-                    to={
-                      index === 0
-                        ? "/"
-                        : index === 1
-                        ? "/#OurApartamens"
-                        : index === 2
-                        ? "/#reviews"
-                        : index === 3
-                        ? "/pricing"
-                        : "/contacts"
-                    }
-                    className={Styles.links}
-                  >
-                    {item}
-                  </Link>
-                  {index < 4 && <div className={Styles.separator} />}
-                </React.Fragment>
-              )
-            )}
+            {[
+              "О нас",
+              "Фотогалерея",
+              "Номера",
+              "Отзывы",
+              "Цены",
+              "Контакты",
+            ].map((item, index) => (
+              <React.Fragment key={index}>
+                <Link
+                  to={
+                    index === 0
+                      ? "/"
+                      : index === 1
+                      ? "/#photo-gallery"
+                      : index === 2
+                      ? "/#our-apartamens"
+                      : index === 3
+                      ? "/#reviews"
+                      : index === 4
+                      ? "/pricing"
+                      : "/contacts"
+                  }
+                  className={Styles.links}
+                >
+                  {item}
+                </Link>
+                {index < 5 && <div className={Styles.separator} />}
+              </React.Fragment>
+            ))}
           </ul>
         </nav>
 
@@ -65,12 +72,13 @@ const Header: React.FC = () => {
           className={`${Styles.reserveBtn} ${
             isShrunk ? Styles.shrunk : Styles.expanded
           }`}
-          aria-label="Забронировать номер"
         >
           Забронировать
         </button>
       </header>
-      {modalActive && <Modal active={modalActive} setActive={setModalActive} />}
+      <div className={Styles.modalContainer}>
+        <Modal active={modalActive} setActive={setModalActive} />
+      </div>
     </div>
   );
 };

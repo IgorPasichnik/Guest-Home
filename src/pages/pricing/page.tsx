@@ -1,5 +1,4 @@
-import React from "react";
-import Intro from "../../components/intro//index";
+import Intro from "../../components/intro/index";
 import Header from "../../UI/header";
 import Footer from "../../UI/footer";
 import Styles from "./Pricing.module.scss";

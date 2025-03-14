@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardReviews from "../cardReviews";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -30,20 +30,40 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ className, onClick }) => (
   />
 );
 
-const settings: Settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  focusOnSelect: true,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-};
-
 const Reviews: React.FC = () => {
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  const updateSlidesToShow = () => {
+    const width = window.innerWidth;
+    if (width <= 768) {
+      setSlidesToShow(1);
+    } else if (width <= 1024) {
+      setSlidesToShow(2);
+    } else {
+      setSlidesToShow(3);
+    }
+  };
+
+  useEffect(() => {
+    updateSlidesToShow();
+    window.addEventListener("resize", updateSlidesToShow);
+
+    return () => window.removeEventListener("resize", updateSlidesToShow);
+  }, []);
+
+  const settings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    focusOnSelect: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
+
   return (
     <>
       <div className={Styles.reviewsSeparator}>

@@ -11,7 +11,7 @@ export default function Contacts() {
       <Intro
         height="60vh"
         sizeTextButton="20px"
-        flexHeight="space-between"
+        flexHeight="space-around"
         sizeLogo="115px"
         nameSize="50px"
       />

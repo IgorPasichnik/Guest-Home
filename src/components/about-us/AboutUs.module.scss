@@ -40,12 +40,24 @@
       justify-content: space-between;
       width: 100%;
 
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+
       img {
         width: 45%;
         height: 400px;
         border-radius: 0.75rem;
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
         object-fit: cover;
+
+        @media (max-width: 1024px) {
+          width: 50%;
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+        }
       }
 
       .textContent {
@@ -56,6 +68,20 @@
         gap: 2.5rem;
         text-align: justify;
         font-size: 1.125rem;
+
+        @media (max-width: 1024px) {
+          width: 45%;
+        }
+
+        @media (max-width: 768px) {
+          margin-top: 30px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column !important;
       }
     }
   }

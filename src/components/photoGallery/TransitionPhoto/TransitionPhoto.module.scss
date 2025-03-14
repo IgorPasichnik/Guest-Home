@@ -31,4 +31,8 @@
   &Image[data-active="prepared"] {
     display: block;
   }
+
+  @media (max-width: 768px) {
+    height: 100px;
+  }
 }

@@ -51,9 +51,25 @@
     justify-content: center;
     font: 24px/1 Georgia;
   }
+
+  @media (max-width: 1200px) {
+    width: 900px;
+
+    &Track {
+      left: 325px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 700px;
+
+    &Track {
+      left: 225px;
+    }
+  }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .previewGallery {
     display: none;
   }

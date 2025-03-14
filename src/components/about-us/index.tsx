@@ -34,8 +34,9 @@ const AboutUs: React.FC = () => {
         {contentBlocks.map(({ img, alt, text, reverse }, index) => (
           <div
             key={index}
-            className={Styles.contentBlock}
-            style={{ flexDirection: reverse ? "row-reverse" : "row" }}
+            className={`${Styles.contentBlock} ${
+              reverse ? Styles.reverse : ""
+            }`}
           >
             <img src={img} alt={alt} />
             <div className={Styles.textContent}>

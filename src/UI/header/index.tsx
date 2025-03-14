@@ -3,10 +3,13 @@ import logo from "../../images/logo.png";
 import Styles from "./links.module.scss";
 import Modal from "../modal";
 import { Link } from "react-router";
+import closeIcon from "../../images/close-64.png";
+import menuIcon from "../../images/menu-50.png";
 
 const Header: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
   const [isShrunk, setIsShrunk] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +36,17 @@ const Header: React.FC = () => {
             </button>
           </Link>
 
-          <ul className={Styles.navLinks}>
+          <button
+            className={Styles.menuToggle}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <img
+              src={menuOpen ? closeIcon : menuIcon}
+              className={`${Styles.menuIcon} ${isShrunk ? Styles.shrunk : ""}`}
+            />
+          </button>
+
+          <ul className={`${Styles.navLinks} ${menuOpen ? Styles.open : ""}`}>
             {[
               "О нас",
               "Фотогалерея",
@@ -58,6 +71,7 @@ const Header: React.FC = () => {
                       : "/contacts"
                   }
                   className={Styles.links}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item}
                 </Link>

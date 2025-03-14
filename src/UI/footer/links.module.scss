@@ -37,7 +37,7 @@
   .navLinks {
     display: flex;
     align-items: center;
-    gap: 1.25rem; // Пространство между ссылками
+    gap: 1.25rem;
 
     a {
       position: relative;
@@ -51,7 +51,7 @@
         height: 1px;
         position: absolute;
         background-color: black;
-        bottom: -2px; // Подчеркивание на небольшом расстоянии от текста
+        bottom: -2px;
         transform: scaleX(0);
         transition: transform 0.5s ease-in-out;
         transform-origin: right;
@@ -62,16 +62,18 @@
         transform-origin: left;
       }
     }
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
   .socialLinks {
     display: flex;
     align-items: center;
-    gap: 1.25rem; // space-x-5
+    gap: 1.25rem;
   }
 }
 
-// Универсальный стиль для социальных иконок
 @mixin social-icon($image-light, $image-dark, $width, $height) {
   width: $width;
   height: $height;
@@ -85,7 +87,6 @@
   }
 }
 
-// Применение миксина для каждой соцсети
 .vk {
   @include social-icon(
     "../../images/vk-black-50.png",

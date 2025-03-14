@@ -85,6 +85,69 @@
       height: 20px;
       background-color: white;
     }
+
+    @media (max-width: 1024px) {
+      .separator {
+        display: none;
+      }
+    }
+  }
+
+  .menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+
+    .menuIcon {
+      width: 35px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .menuIcon.shrunk {
+      width: 25px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .navLinks {
+      gap: 0.6rem;
+
+      &.shrunk {
+        font-size: 11px;
+      }
+
+      &.expanded {
+        font-size: 14px;
+        padding: 6px;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .navLinks {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      width: 100%;
+      background-color: #292524;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .navLinks.open {
+      display: flex;
+    }
+
+    .menuToggle {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+    }
   }
 
   .reserveBtn {

@@ -9,6 +9,7 @@ type MyInputProps = {
   readOnly?: boolean;
   placeholder?: string;
   maxLength?: number;
+  error?: boolean;
 };
 
 const MyInput: React.FC<MyInputProps> = ({
@@ -19,11 +20,12 @@ const MyInput: React.FC<MyInputProps> = ({
   readOnly,
   placeholder,
   maxLength,
+  error,
 }) => {
   return (
     <div className={Styles.inputContainer}>
       <input
-        className={Styles.inputField}
+        className={`${Styles.inputField} ${error ? Styles.error : ""}`.trim()}
         type={type}
         value={value}
         readOnly={readOnly}

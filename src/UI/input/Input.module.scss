@@ -1,12 +1,10 @@
 .inputContainer {
-  padding: 0.25rem 0;
   width: 100%;
-  max-width: 400px;
-  min-width: 400px;
+  padding: 0.25rem 0;
 }
 
 .inputField {
-  width: 100%;
+  width: 93.5%;
   background-color: transparent;
   color: #475569;
   font-size: 0.875rem;
@@ -28,4 +26,8 @@
   &:hover {
     border-color: #d4edd9;
   }
+}
+
+.error {
+  border: 1px solid red;
 }

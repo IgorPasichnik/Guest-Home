@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./MySelect.module.scss";
 import MyInput from "../../input";
 
@@ -10,9 +10,16 @@ type Option = {
 interface MySelectProps {
   value: string;
   onChange: (value: string) => void;
+  inputsHighlighted: boolean;
+  room: string;
 }
 
-const MySelect: React.FC<MySelectProps> = ({ value, onChange }) => {
+const MySelect: React.FC<MySelectProps> = ({
+  value,
+  onChange,
+  inputsHighlighted,
+  room,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +41,7 @@ const MySelect: React.FC<MySelectProps> = ({ value, onChange }) => {
         readOnly
         onClick={() => setIsOpen(!isOpen)}
         placeholder="Выбрать..."
+        error={inputsHighlighted && !room}
       />
       {isOpen && (
         <div className={styles.optionsList}>

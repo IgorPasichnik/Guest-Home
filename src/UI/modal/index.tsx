@@ -28,7 +28,6 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
   const isFormValid =
     name !== "" &&
     email !== "" &&
-    message !== "" &&
     phoneNumber !== "" &&
     adults !== "" &&
     children !== "" &&
@@ -58,25 +57,35 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
         date,
       };
       try {
-        const response = await fetch(
-          process.env.REACT_APP_SENDEMAIL_URL || "",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(feedbackData),
-          }
-        );
+        const response = await fetch(process.env.REACT_APP_SENDEMAIL_URL!, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(feedbackData),
+        });
 
         if (response.ok) {
           setDone(true);
-          setTimeout(() => setActive(false), 3000);
+          setName("");
+          setPhoneNumber("");
+          setEmail("");
+          setMessage("");
+          setAdults("");
+          setChildren("");
+          setRoom("");
+          setDate("");
+
+          setTimeout(() => {
+            setDone(false);
+            setActive(false);
+          }, 4000);
         } else {
           setError(true);
           throw new Error("Ошибка отправки данных");
         }
       } catch (error) {
+        console.log("ошибка");
         console.error("Ошибка:", error);
         setError(true);
       }
@@ -97,55 +106,84 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
       <div onClick={(e) => e.stopPropagation()} className={Styles.modalContent}>
         <h1>Бронирование</h1>
         <div>
-          <label>ФИО*</label>
+          <label>
+            ФИО<span style={{ color: "red" }}>*</span>
+          </label>
           <MyInput
             value={name}
             onChange={handleInputChange(setName)}
             placeholder="Введите ваше ФИО"
+            error={inputsHighlighted && !name}
           />
         </div>
         <div>
-          <label>Количество взрослых*</label>
+          <label>
+            Количество взрослых<span style={{ color: "red" }}>*</span>
+          </label>
           <MyInput
             type="number"
             value={adults}
             onChange={handleInputChange(setAdults)}
             placeholder="0"
+            error={inputsHighlighted && !adults}
           />
         </div>
         <div>
-          <label>Количество детей*</label>
+          <label>
+            Количество детей<span style={{ color: "red" }}>*</span>
+          </label>
           <MyInput
             type="number"
             value={children}
             onChange={handleInputChange(setChildren)}
             placeholder="0"
+            error={inputsHighlighted && !children}
           />
         </div>
         <div>
-          <label>Тип номера*</label>
-          <MySelect value={room} onChange={setRoom} />
+          <label>
+            Тип номера<span style={{ color: "red" }}>*</span>
+          </label>
+          <MySelect
+            value={room}
+            onChange={setRoom}
+            inputsHighlighted={inputsHighlighted}
+            room={room}
+          />
         </div>
         <div>
-          <label>Дата заезда/выезда*</label>
-          <MyCalendar value={date} onChange={setDate} />
+          <label>
+            Дата заезда/выезда<span style={{ color: "red" }}>*</span>
+          </label>
+          <MyCalendar
+            value={date}
+            onChange={setDate}
+            inputsHighlighted={inputsHighlighted}
+            date={date}
+          />
         </div>
         <div>
-          <label>Телефон*</label>
+          <label>
+            Телефон<span style={{ color: "red" }}>*</span>
+          </label>
           <MyInput
             type="tel"
             value={phoneNumber}
             onChange={handleInputChange(setPhoneNumber)}
             placeholder="+7 (___) ___-__-__"
+            error={inputsHighlighted && !phoneNumber}
           />
         </div>
         <div>
-          <label>Email*</label>
+          <label>
+            Email<span style={{ color: "red" }}>*</span>
+          </label>
           <MyInput
             type="email"
             value={email}
             onChange={handleInputChange(setEmail)}
             placeholder="example@mail.com"
+            error={inputsHighlighted && !email}
           />
         </div>
         <div>
@@ -159,11 +197,11 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
 
         {showMessage ? (
           <div className={Styles.msgErr}>
-            <p>Заполните обязательные поля и примите условия соглашения.</p>
+            <p>Заполните обязательные поля!</p>
           </div>
         ) : done ? (
           <div className={Styles.msgDone}>
-            <img src={ready} alt="done" style={{ width: "10px" }} />
+            <img src={ready} alt="done" style={{ width: "20px" }} />
             <p>Заявка успешно отправлена!</p>
           </div>
         ) : error ? (
@@ -171,10 +209,13 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             <p>Ошибка отправки формы!</p>
           </div>
         ) : (
-          <div className="h-[28px]"></div>
+          <div className={Styles.msgNone}></div>
         )}
 
-        <button type="submit" disabled={!isFormValid}>
+        <button
+          type="submit"
+          // disabled={!isFormValid}
+        >
           Отправить
         </button>
       </div>

@@ -10,11 +10,18 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 interface MyCalendarProps {
   value: string;
   onChange: (value: string) => void;
+  inputsHighlighted: boolean;
+  date: string;
 }
 
-const MyCalendar: React.FC<MyCalendarProps> = ({ value, onChange }) => {
+const MyCalendar: React.FC<MyCalendarProps> = ({
+  value,
+  onChange,
+  inputsHighlighted,
+  date,
+}) => {
   const [range, setRange] = useState<[Date | null, Date | null]>([null, null]);
-  const [hoveredDate, setHoveredDate] = useState<Date | null>(null); // Дата под курсором
+  const [hoveredDate, setHoveredDate] = useState<Date | null>(null);
   const [inputValue, setInputValue] = useState<string>("");
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
@@ -23,16 +30,17 @@ const MyCalendar: React.FC<MyCalendarProps> = ({ value, onChange }) => {
     if (Array.isArray(value)) {
       const [start, end] = value as [Date, Date];
       setRange([start, end]);
-      setHoveredDate(null); // Сбрасываем `hoveredDate`
+      setHoveredDate(null);
 
-      // Форматируем дату в "DD.MM"
       const formatDate = (date: Date) => {
         const day = date.getDate().toString().padStart(2, "0");
         const month = (date.getMonth() + 1).toString().padStart(2, "0");
         return `${day}.${month}`;
       };
 
-      setInputValue(`${formatDate(start)} - ${formatDate(end)}`);
+      const formattedDate = `${formatDate(start)} - ${formatDate(end)}`;
+      setInputValue(formattedDate);
+      onChange(formattedDate);
       setIsCalendarOpen(false);
     }
   };
@@ -68,6 +76,7 @@ const MyCalendar: React.FC<MyCalendarProps> = ({ value, onChange }) => {
         readOnly={true}
         onClick={handleInputClick}
         placeholder="Выбрать..."
+        error={inputsHighlighted && !date}
       />
       {isCalendarOpen && (
         <div
@@ -117,7 +126,7 @@ const MyCalendar: React.FC<MyCalendarProps> = ({ value, onChange }) => {
             }}
             tileDisabled={({ date }) => {
               const month = date.getMonth();
-              return month < 4 || month > 8; // Отключаем даты с октября по апрель
+              return month < 4 || month > 8;
             }}
             tileContent={({ date }) => (
               <div onMouseEnter={() => handleMouseEnter(date)}></div>

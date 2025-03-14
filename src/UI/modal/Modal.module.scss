@@ -1,4 +1,5 @@
 .modalOverlay {
+  text-align: left;
   z-index: 999;
   position: fixed;
   top: 0;
@@ -24,7 +25,6 @@
 }
 
 .modalContent {
-  text-align: left;
   background-color: white;
   padding: 3rem 12rem;
   border-radius: 0.5rem;
@@ -37,6 +37,10 @@
   h1 {
     text-align: center;
     font-size: 1.5rem;
+    margin: 0;
+  }
+
+  p {
     margin: 0;
   }
 
@@ -62,18 +66,21 @@
   }
 
   .msgDone {
-    align-items: center;
+    height: 30px !important;
+    color: #166534;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .msgErr {
+    height: 30px !important;
     color: red;
     display: flex;
     justify-content: center;
   }
 
-  .msg {
-    height: 28px;
+  .msgNone {
+    height: 30px !important;
   }
 }

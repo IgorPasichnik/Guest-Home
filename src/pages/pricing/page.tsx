@@ -11,7 +11,7 @@ export default function Pricing() {
         height="60vh"
         sizeTextButton="20px"
         flexHeight="space-around"
-        sizeLogo="115px"
+        sizeLogo="130px"
         nameSize="50px"
       />
       <div className={Styles.pricing}>

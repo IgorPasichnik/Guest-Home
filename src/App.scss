@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+// Общие стили для точек (пагинации)
+.slick-dots {
+  position: relative !important;
+  top: -20px;
+}

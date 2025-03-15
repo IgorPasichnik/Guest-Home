@@ -31,6 +31,7 @@ const SamplePrevArrow: React.FC<ArrowProps> = ({ className, onClick }) => (
 );
 
 const Reviews: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [slidesToShow, setSlidesToShow] = useState(3);
 
   const updateSlidesToShow = () => {
@@ -43,6 +44,15 @@ const Reviews: React.FC = () => {
       setSlidesToShow(3);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     updateSlidesToShow();
@@ -58,10 +68,10 @@ const Reviews: React.FC = () => {
     slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: isMobile ? 3000 : 5000,
     focusOnSelect: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: isMobile ? undefined : <SampleNextArrow />,
+    prevArrow: isMobile ? undefined : <SamplePrevArrow />,
   };
 
   return (

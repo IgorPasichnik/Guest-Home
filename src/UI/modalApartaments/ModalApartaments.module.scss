@@ -66,6 +66,10 @@
   }
 
   @media (max-width: 768px) {
+    .closeButton {
+      top: -3px;
+    }
+
     h2 {
       font-size: 1.3rem;
     }

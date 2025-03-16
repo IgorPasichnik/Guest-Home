@@ -108,6 +108,10 @@
   @media (max-width: 768px) {
     padding: 1.5rem 2rem;
 
+    .closeButton {
+      top: -3px;
+    }
+
     h2 {
       font-size: 1.3rem;
     }

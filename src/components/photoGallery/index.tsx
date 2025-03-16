@@ -22,7 +22,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <>
       <div id="photo-gallery" className={Styles.gallery}>
         <div className={Styles.galleryContainer}>
-          <h1>Фотогалерея</h1>
+          <h2>Фотогалерея</h2>
           <div className={Styles.roomGallery}>
             <div className={Styles.roomGalleryContainer}>
               <TransitionPhoto

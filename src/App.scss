@@ -47,3 +47,22 @@
   position: relative !important;
   top: -20px;
 }
+
+.slick-slider {
+  overflow: hidden; // 🔹 Прячем лишние части слайдера
+}
+
+.slick-list {
+  overflow: hidden; // 🔹 Принудительно скрываем переполнение
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .slick-track {
+    transform: translate3d(0, 0, 0) !important; // 🔹 Исправляем баг react-slick
+  }
+}

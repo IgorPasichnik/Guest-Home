@@ -44,7 +44,7 @@ const OurApartamens: React.FC = () => {
   return (
     <div id="our-apartamens" className={Styles.ourApartamens}>
       <div className={Styles.container}>
-        <h1>Наши номера</h1>
+        <h2>Наши номера</h2>
         <div className={Styles.cards}>
           {rooms.map((room) => (
             <CardApartamens

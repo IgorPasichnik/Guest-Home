@@ -104,8 +104,8 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
       onSubmit={handleSubmit}
     >
       <div onClick={(e) => e.stopPropagation()} className={Styles.modalContent}>
-        <h1>Бронирование</h1>
-        <div>
+        <h2>Бронирование</h2>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             ФИО<span style={{ color: "red" }}>*</span>
           </label>
@@ -116,7 +116,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             error={inputsHighlighted && !name}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Количество взрослых<span style={{ color: "red" }}>*</span>
           </label>
@@ -128,7 +128,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             error={inputsHighlighted && !adults}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Количество детей<span style={{ color: "red" }}>*</span>
           </label>
@@ -140,7 +140,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             error={inputsHighlighted && !children}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Тип номера<span style={{ color: "red" }}>*</span>
           </label>
@@ -151,7 +151,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             room={room}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Дата заезда/выезда<span style={{ color: "red" }}>*</span>
           </label>
@@ -162,7 +162,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             date={date}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Телефон<span style={{ color: "red" }}>*</span>
           </label>
@@ -174,7 +174,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             error={inputsHighlighted && !phoneNumber}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             Email<span style={{ color: "red" }}>*</span>
           </label>
@@ -186,7 +186,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
             error={inputsHighlighted && !email}
           />
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <label>Дополнительно</label>
           <MyInput
             value={message}

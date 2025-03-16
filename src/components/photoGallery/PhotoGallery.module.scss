@@ -36,20 +36,12 @@
     }
   }
 
-  h1 {
+  h2 {
     font-size: 1.5rem;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
   }
 }
-
-// .reviewsSeparator {
-//   display: flex;
-//   justify-content: center;
-
-//   hr {
-//     width: 90%;
-//     border: none;
-//     height: 1px;
-//     background-color: #d3d3d3;
-//   }
-// }

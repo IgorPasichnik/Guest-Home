@@ -22,7 +22,7 @@ export default function Pricing() {
               <thead>
                 <tr>
                   <th>Категория номера</th>
-                  <th>Кол-во мест</th>
+                  <th className={Styles.hiddenForMobile}>Кол-во мест</th>
                   <th>01.06 - 30.06</th>
                   <th>01.07 - 31.08</th>
                   <th>01.09 - 30.09</th>
@@ -31,21 +31,21 @@ export default function Pricing() {
               <tbody>
                 <tr>
                   <td>Стандарт 2-х местный</td>
-                  <td>2</td>
+                  <td className={Styles.hiddenForMobile}>2</td>
                   <td>1100,0</td>
                   <td>1200,0</td>
                   <td>1100,0</td>
                 </tr>
                 <tr>
                   <td>Стандарт 3-х местный</td>
-                  <td>3</td>
+                  <td className={Styles.hiddenForMobile}>3</td>
                   <td>1100,0</td>
                   <td>1200,0</td>
                   <td>1100,0</td>
                 </tr>
                 <tr>
                   <td>Стандарт 4-х местный</td>
-                  <td>4</td>
+                  <td className={Styles.hiddenForMobile}>4</td>
                   <td>1100,0</td>
                   <td>1200,0</td>
                   <td>1100,0</td>

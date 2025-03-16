@@ -23,18 +23,16 @@ const MyInput: React.FC<MyInputProps> = ({
   error,
 }) => {
   return (
-    <div className={Styles.inputContainer}>
-      <input
-        className={`${Styles.inputField} ${error ? Styles.error : ""}`.trim()}
-        type={type}
-        value={value}
-        readOnly={readOnly}
-        placeholder={placeholder}
-        onClick={onClick}
-        onChange={onChange}
-        maxLength={maxLength}
-      />
-    </div>
+    <input
+      className={`${Styles.inputField} ${error ? Styles.error : ""}`.trim()}
+      type={type}
+      value={value}
+      readOnly={readOnly}
+      placeholder={placeholder}
+      onClick={onClick}
+      onChange={onChange}
+      maxLength={maxLength}
+    />
   );
 };
 

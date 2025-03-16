@@ -64,5 +64,58 @@
         gap: 1;
       }
     }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .downTable {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .pricingContainer {
+      .pricingTable {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricingContainer {
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .pricingTable {
+        font-size: 0.8rem;
+
+        th {
+          padding: 0.5rem;
+        }
+        td {
+          padding: 0.5rem;
+        }
+
+        .hiddenForMobile {
+          display: none;
+        }
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .downTable {
+        font-size: 0.8rem;
+      }
+
+      .additionally {
+        h3 {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 }

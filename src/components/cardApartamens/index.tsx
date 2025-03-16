@@ -15,7 +15,7 @@ const CardApartamens: React.FC<CardApartamensProps> = ({
   onClick,
 }) => {
   return (
-    <div className={Styles.card}>
+    <div className={Styles.cardApartamens}>
       <img src={image} alt={title} />
       <div className={Styles.cardContent}>
         <h3>{title}</h3>

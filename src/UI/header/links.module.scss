@@ -96,12 +96,12 @@
     cursor: pointer;
 
     .menuIcon {
-      width: 35px;
+      height: 35px;
       transition: all 0.3s ease-in-out;
     }
 
     .menuIcon.shrunk {
-      width: 25px;
+      height: 25px;
     }
   }
 

@@ -61,8 +61,8 @@
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .slick-track {
-    transform: translate3d(0, 0, 0) !important; // 🔹 Исправляем баг react-slick
-  }
-}
+// @media (max-width: 768px) {
+//   .slick-track {
+//     transform: translate3d(0, 0, 0) !important; // 🔹 Исправляем баг react-slick
+//   }
+// }

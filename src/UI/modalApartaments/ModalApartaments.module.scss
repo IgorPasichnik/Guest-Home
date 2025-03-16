@@ -32,14 +32,47 @@
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   overflow: hidden;
 
+  .modalApart {
+    width: 100%;
+    position: relative;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
   p {
+    font-size: 1rem;
     text-align: center;
-    margin-top: 10px;
-    max-width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
   }
 }
 

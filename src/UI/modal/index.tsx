@@ -4,6 +4,7 @@ import MySelect from "./select";
 import MyCalendar from "./calendar";
 import Styles from "./Modal.module.scss";
 import ready from "../../images/done-48.png";
+import closeIcon from "../../images/black-close-64.png";
 
 interface ModalProps {
   active: boolean;
@@ -104,7 +105,15 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
       onSubmit={handleSubmit}
     >
       <div onClick={(e) => e.stopPropagation()} className={Styles.modalContent}>
-        <h2>Бронирование</h2>
+        <div className={Styles.modalHeader}>
+          <h2>Бронирование</h2>
+          <img
+            src={closeIcon}
+            alt="Закрыть"
+            className={Styles.closeButton}
+            onClick={() => setActive(false)}
+          />
+        </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>
             ФИО<span style={{ color: "red" }}>*</span>

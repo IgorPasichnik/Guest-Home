@@ -3,6 +3,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Styles from "./ModalApartaments.module.scss";
 import "./ModalApart.scss";
+import closeIcon from "../../images/black-close-64.png";
 
 interface ModalProps {
   active: boolean;
@@ -32,7 +33,15 @@ const ModalApartaments: React.FC<ModalProps> = ({
       onClick={() => setActive(false)}
     >
       <div onClick={(e) => e.stopPropagation()} className={Styles.modalContent}>
-        <h1>{room.title}</h1>
+        <div className={Styles.modalApart}>
+          <h2>{room.title}</h2>
+          <img
+            src={closeIcon}
+            alt="Закрыть"
+            className={Styles.closeButton}
+            onClick={() => setActive(false)}
+          />
+        </div>
         <div className={Styles.galleryWrapper}>
           <ImageGallery
             items={images}

@@ -1,5 +1,5 @@
 import React from "react";
-import ImageGallery from "react-image-gallery";
+import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Styles from "./ModalApartaments.module.scss";
 import "./ModalApart.scss";
@@ -12,6 +12,7 @@ interface ModalProps {
     images: string[];
     title: string;
     description: string;
+    folder?: string;
   };
 }
 
@@ -20,9 +21,11 @@ const ModalApartaments: React.FC<ModalProps> = ({
   setActive,
   room,
 }) => {
-  const images = room.images.map((img) => ({
+  const images: ReactImageGalleryItem[] = room.images.map((img) => ({
     original: img,
     thumbnail: img,
+    originalClass: Styles.galleryImage,
+    thumbnailClass: Styles.thumbImage,
   }));
 
   return (
@@ -50,6 +53,8 @@ const ModalApartaments: React.FC<ModalProps> = ({
             showNav={true}
             showThumbnails={true}
             thumbnailPosition="left"
+            lazyLoad={true}
+            additionalClass={Styles.customGallery}
           />
         </div>
         <p>{room.description}</p>

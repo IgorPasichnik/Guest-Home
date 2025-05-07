@@ -9,11 +9,13 @@ import Reviews from "../../components/reviews/index";
 import PhotoGallery from "../../components/photoGallery";
 
 const photos = Array.from({ length: 44 }, (_, index) => {
-  const photo = require(`../../images/photo-gallery/${index + 1}.jpg`);
+  const photoUrl = `${process.env.REACT_APP_API_URL}/photo-gallery/${
+    index + 1
+  }.jpg`;
   return {
     id: index + 1,
-    src: photo,
-    preview: photo,
+    src: photoUrl,
+    preview: photoUrl,
     description: "Фотокарточки GreenYard",
   };
 });

@@ -1,7 +1,5 @@
 import cl from "classnames";
-
 import { CommonClassProps } from "../types";
-
 import style from "./Navigation.module.scss";
 
 interface NavigationProps extends CommonClassProps {

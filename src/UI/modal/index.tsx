@@ -221,12 +221,7 @@ const Modal: React.FC<ModalProps> = ({ active, setActive }) => {
           <div className={Styles.msgNone}></div>
         )}
 
-        <button
-          type="submit"
-          // disabled={!isFormValid}
-        >
-          Отправить
-        </button>
+        <button type="submit">Отправить</button>
       </div>
     </form>
   );

@@ -12,7 +12,7 @@ export default function Contacts() {
         height="60vh"
         sizeTextButton="20px"
         flexHeight="space-around"
-        sizeLogo="115px"
+        sizeLogo="130px"
         nameSize="50px"
       />
       <ContactsInformation />

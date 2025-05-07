@@ -1,9 +1,8 @@
 import { useMemo, useRef, useEffect } from "react";
 import cl from "classnames";
-
 import { Photo, CommonClassProps } from "../types";
-
 import Styles from "./PrewieGallery.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface PreviewGalleryProps extends CommonClassProps {
   photos: Photo[];
@@ -17,10 +16,6 @@ export const PreviewGallery: React.FC<PreviewGalleryProps> = ({
   indexActivePhoto,
   setNewPhoto,
 }) => {
-  //   if (!photos.length) {
-  //     return null;
-  //   }
-
   const previewContainer = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -44,10 +39,11 @@ export const PreviewGallery: React.FC<PreviewGalleryProps> = ({
                   className={Styles.previewGalleryPreview}
                   onClick={() => setNewPhoto(id)}
                 >
-                  <img
+                  <LazyLoadImage
                     className={Styles.previewGalleryImage}
                     src={photo.preview}
                     alt={photo.description}
+                    effect="blur"
                   />
                 </button>
               </div>
